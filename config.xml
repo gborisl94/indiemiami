@@ -1,9 +1,27 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.indie.miami" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Indie Miami</name>
-    <description>Indie Miami Archer</description>
-    <author email="dev@example.com" href="https://example.com">Indie</author>
+<widget id="com.indiemiami.grimdawnarcher" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Grim Dawn Archer</name>
+    <description>Archer survival twin-stick shooter</description>
+    <author email="dev@indiemiami.com">indiemiami</author>
+
     <content src="index.html" />
+
+    <preference name="Orientation" value="landscape" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/screen/android/splash.png" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
+    <preference name="SplashShowOnlyFirstTime" value="false" />
+    <preference name="SplashScreenDelay" value="0" />
+    <preference name="AndroidPersistentFileLocation" value="Internal" />
+    <preference name="android-windowSoftInputMode" value="stateVisible|adjustPan" />
+
+    <platform name="android">
+        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/activity[@android:name='MainActivity']">
+            <activity android:screenOrientation="landscape" android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode" />
+        </edit-config>
+        <preference name="AndroidInsecureFileModeEnabled" value="true" />
+    </platform>
+
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
