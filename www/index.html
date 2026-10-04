@@ -1,2 +1,43 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><style>html,body{margin:0;background:#0e0f14;overflow:hidden} #c{width:100vw;height:100vh;display:block;touch-action:none}</style></head><body><canvas id="c"></canvas><script src="game.js"></script></body></html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>Grim Dawn Archer</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; user-select:none; -webkit-tap-highlight-color:transparent; }
+  html, body { width:100vw; height:100vh; overflow:hidden; background:#131326; touch-action:none; position:fixed; }
+  #c { display:block; width:100vw; height:100vh; background:#131326; }
+  #ui { position:absolute; top:0; left:0; width:100vw; height:100vh; pointer-events:none; font-family:monospace; font-weight:bold; font-size:11px; color:#fff; }
+  #flash { position:absolute; top:0; left:0; width:100vw; height:100vh; background:#ff0022; opacity:0; pointer-events:none; transition:opacity 0.08s; z-index:10; }
+  #joy { position:absolute; bottom:20px; left:20px; width:110px; height:110px; border-radius:50%; background:rgba(255,255,255,0.08); border:2px solid rgba(255,255,255,0.2); pointer-events:auto; touch-action:none; z-index:20; }
+  #stick { position:absolute; top:50%; left:50%; width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,0.3); transform:translate(-50%,-50%); pointer-events:none; }
+  .btn { position:absolute; width:86px; height:86px; border-radius:50%; background:rgba(255,255,255,0.1); border:2px solid rgba(255,255,255,0.25); color:#fff; font-family:monospace; font-weight:bold; font-size:11px; display:flex; align-items:center; justify-content:center; pointer-events:auto; touch-action:none; z-index:20; text-shadow:0 0 4px #000; }
+  #b_aim { right:20px; bottom:130px; }
+  #b_boom { right:20px; bottom:30px; }
+  #b_craft { right:120px; bottom:30px; }
+  #hud { position:absolute; top:0; left:0; width:100%; height:34px; background:#000; display:flex; align-items:center; padding:0 8px; gap:10px; pointer-events:none; z-index:15; }
+  #hpbar { width:80px; height:12px; background:#333; border:1px solid #555; }
+  #hpfill { width:100%; height:100%; background:#e33; transition:width 0.1s; }
+  #hudtxt { font-size:11px; color:#ccc; white-space:nowrap; }
+  #go { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; pointer-events:auto; z-index:30; display:none; }
+  #go h1 { font-size:40px; color:#ff007f; text-shadow:0 0 10px #ff007f; margin-bottom:10px; }
+  #go p { font-size:20px; color:#fff; margin-bottom:20px; }
+  #go button { padding:10px 20px; font-family:monospace; font-weight:bold; font-size:14px; background:#333; color:#fff; border:2px solid #666; border-radius:5px; pointer-events:auto; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="ui">
+  <div id="flash"></div>
+  <div id="hud"><div id="hpbar"><div id="hpfill"></div></div><div id="hudtxt">HP 100 | FISH 0 ARR 0 EXPL 0 SCORE 0</div></div>
+  <div id="joy"><div id="stick"></div></div>
+  <div class="btn" id="b_aim">AIM</div>
+  <div class="btn" id="b_boom">BOOM</div>
+  <div class="btn" id="b_craft">CRAFT</div>
+  <div id="go"><h1>GAME OVER</h1><p id="gotxt">Score 0</p><button id="gobtn">RESTART</button></div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
